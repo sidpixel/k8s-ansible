@@ -1,4 +1,4 @@
-# PASSWD: zhangguanzhang
+# PASSWD: passwd
 ansible_ssh_port: 22
 # ansible_ssh_pass: passwd
 
