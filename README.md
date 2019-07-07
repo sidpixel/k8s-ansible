@@ -35,13 +35,13 @@
 
 **下面是我的配置,电脑配置低就两个Node节点,master节点建议也跑kubelet但是请打上污点,聚合路由有空测试试试**
 
-| IP    | Hostname   |  CPU  |   Memory | 
-| :----- |  :----:  | :----:  |  :----:  |
-| 172.16.1.3 |k8s-m1|  2   |   2G    |
-| 172.16.1.4 |k8s-m2|  2   |   2G    |
-| 172.16.1.5 |k8s-m3|  2   |   2G    |
-| 172.16.1.6 |k8s-n1|  2   |   2G    |
-| 172.16.1.7 |k8s-n1|  2   |   2G    |
+| IP        | Hostname   |  CPU |  Memory | 
+| :-----    |  :----:    | :---:|  :----: |
+| 10.1.0.2  |k8s-m1      |  2   |   2G    |
+| 10.1.0.3  |k8s-m2      |  2   |   2G    |
+| 10.1.0.4  |k8s-m3      |  2   |   2G    |
+| 10.1.0.41 |k8s-n1      |  2   |   2G    |
+| 10.1.0.42 |k8s-n1      |  2   |   2G    |
 
 # 使用前提和注意事项
 > * 每台主机端口和密码最好一致(不一致最好懂点ansible修改hosts文件)
@@ -167,11 +167,11 @@ kubectl label node ${node_name} node-role.kubernetes.io/node=""
 ```
 $ kubectl get node -o wide
 NAME     STATUS   ROLES    AGE   VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                KERNEL-VERSION              CONTAINER-RUNTIME
-k8s-m1   Ready    <none>   28m   v1.13.4   172.16.1.3    <none>        CentOS Linux 7 (Core)   5.0.3-1.el7.elrepo.x86_64   docker://18.6.3
-k8s-m2   Ready    <none>   28m   v1.13.4   172.16.1.4    <none>        CentOS Linux 7 (Core)   5.0.3-1.el7.elrepo.x86_64   docker://18.6.3
-k8s-m3   Ready    <none>   28m   v1.13.4   172.16.1.5    <none>        CentOS Linux 7 (Core)   5.0.3-1.el7.elrepo.x86_64   docker://18.6.3
-k8s-n1   Ready    <none>   28m   v1.13.4   172.16.1.6    <none>        CentOS Linux 7 (Core)   5.0.3-1.el7.elrepo.x86_64   docker://18.6.3
-k8s-n2   Ready    <none>   6s    v1.13.4   172.16.1.7    <none>        CentOS Linux 7 (Core)   5.0.3-1.el7.elrepo.x86_64   docker://18.6.3
+k8s-m1   Ready    <none>   28m   v1.13.4   10.1.0.2    <none>        CentOS Linux 7 (Core)   5.0.3-1.el7.elrepo.x86_64   docker://18.6.3
+k8s-m2   Ready    <none>   28m   v1.13.4   10.1.0.3    <none>        CentOS Linux 7 (Core)   5.0.3-1.el7.elrepo.x86_64   docker://18.6.3
+k8s-m3   Ready    <none>   28m   v1.13.4   10.1.0.4    <none>        CentOS Linux 7 (Core)   5.0.3-1.el7.elrepo.x86_64   docker://18.6.3
+k8s-n1   Ready    <none>   28m   v1.13.4   10.1.0.41    <none>        CentOS Linux 7 (Core)   5.0.3-1.el7.elrepo.x86_64   docker://18.6.3
+k8s-n2   Ready    <none>   6s    v1.13.4   10.1.0.42    <none>        CentOS Linux 7 (Core)   5.0.3-1.el7.elrepo.x86_64   docker://18.6.3
 ```
 
 **6 备份恢复**
